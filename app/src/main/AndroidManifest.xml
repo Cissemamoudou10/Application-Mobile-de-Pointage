@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- ════════ PERMISSIONS ════════ -->
+    <!-- Accès Internet pour communiquer avec le backend -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Vérifier l'état de la connexion (mode hors ligne) -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Caméra pour scanner les QR codes -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- Fonctionnalité caméra requise -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Cit_pointage"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.superadmin.ParametresActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.superadmin.JournalAdminsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.superadmin.JournalPertesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.superadmin.RapportGlobalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.superadmin.CreerCompteActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".ui.superadmin.AlertesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.superadmin.SuperAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.admin.HorairesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.admin.RapportPermissionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.admin.RapportRetardatairesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.admin.RapportPresenceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.admin.CreerPermissionActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.admin.GenererBadgeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.admin.ListeUtilisateursActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.admin.CreerUtilisateurActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.admin.AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.controleur.RechercheManuelleActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.controleur.SignalerPerteActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.controleur.ScanActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.controleur.ControleurActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <!--
+         ↑ Permet HTTP (pas HTTPS) en développement
+             À remplacer par une config réseau en production
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

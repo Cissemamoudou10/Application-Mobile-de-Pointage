@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/paper">
+
+    <!-- ════════ APPBAR ════════ -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/AppBar.Default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="Créer une permission"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_margin"
+            android:paddingEnd="@dimen/screen_margin"
+            android:paddingTop="@dimen/space_6"
+            android:paddingBottom="@dimen/space_8">
+
+            <!-- ════════ ÉTAPE 1 — UTILISATEUR ════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ÉTAPE 1 — UTILISATEUR"
+                style="@style/TextStyle.Eyebrow"
+                android:layout_marginBottom="@dimen/space_3"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRecherche"
+                style="@style/Input.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Matricule ou nom"
+                android:layout_marginBottom="@dimen/space_3">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRecherche"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:imeOptions="actionSearch"
+                    android:textSize="@dimen/text_md"
+                    android:textColor="@color/ink_1"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRechercher"
+                style="@style/Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rechercher"
+                android:layout_marginBottom="@dimen/space_4"/>
+
+            <!-- Utilisateur sélectionné -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardUtilisateur"
+                style="@style/Card.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_6"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/space_4">
+
+                    <ImageView
+                        android:id="@+id/ivAvatar"
+                        android:layout_width="@dimen/avatar_size"
+                        android:layout_height="@dimen/avatar_size"
+                        android:scaleType="centerCrop"
+                        android:background="@color/olive_100"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/space_3">
+
+                        <TextView
+                            android:id="@+id/tvNomComplet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/TextStyle.H4"
+                            android:layout_marginBottom="2dp"/>
+
+                        <TextView
+                            android:id="@+id/tvMatricule"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/TextStyle.Caption"
+                            android:fontFamily="@font/jetbrains_mono_regular"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ════════ ÉTAPE 2 — DATES ════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ÉTAPE 2 — DATES DE PERMISSION"
+                style="@style/TextStyle.Eyebrow"
+                android:layout_marginBottom="@dimen/space_3"/>
+
+            <!-- Date début -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDateDebut"
+                style="@style/Input.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Date de début (AAAA-MM-JJ)"
+                android:layout_marginBottom="@dimen/space_3">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDateDebut"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:textSize="@dimen/text_md"
+                    android:fontFamily="@font/jetbrains_mono_regular"
+                    android:textColor="@color/ink_1"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Date fin -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDateFin"
+                style="@style/Input.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Date de fin (AAAA-MM-JJ)"
+                android:layout_marginBottom="@dimen/space_4">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDateFin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:textSize="@dimen/text_md"
+                    android:fontFamily="@font/jetbrains_mono_regular"
+                    android:textColor="@color/ink_1"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- ════════ ÉTAPE 3 — TYPE ════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ÉTAPE 3 — TYPE DE SAISIE"
+                style="@style/TextStyle.Eyebrow"
+                android:layout_marginBottom="@dimen/space_3"/>
+
+            <!-- Saisie système -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSaisieSysteme"
+                style="@style/Card.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_3"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/space_4">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Permission système"
+                            style="@style/TextStyle.H4"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Générée directement dans le système"
+                            style="@style/TextStyle.Caption"/>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvSystemeSelectionne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="●"
+                        android:textSize="20sp"
+                        android:textColor="@color/olive_500"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Saisie manuelle -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSaisieManuelle"
+                style="@style/Card.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_8"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/space_4">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Saisie manuelle"
+                            style="@style/TextStyle.H4"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Permission générée en dehors du système"
+                            style="@style/TextStyle.Caption"/>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvManuelleSelectionne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="○"
+                        android:textSize="20sp"
+                        android:textColor="@color/ink_4"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Message erreur -->
+            <TextView
+                android:id="@+id/tvErreur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="@dimen/text_sm"
+                android:textColor="@color/status_err_fg"
+                android:layout_marginBottom="@dimen/space_3"/>
+
+            <!-- Bouton créer -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCreer"
+                style="@style/Button.Primary.Large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Créer la permission"
+                android:enabled="false"/>
+
+            <!-- Chargement -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:indeterminateTint="@color/olive_500"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/space_4"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

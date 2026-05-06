@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/paper">
+
+    <!-- ════════ APPBAR ════════ -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/AppBar.Default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="Créer un utilisateur"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"/>
+
+    <!-- ════════ FORMULAIRE ════════ -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_margin"
+            android:paddingEnd="@dimen/screen_margin"
+            android:paddingTop="@dimen/space_6"
+            android:paddingBottom="@dimen/space_8">
+
+            <!-- Matricule -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IDENTITÉ"
+                style="@style/TextStyle.Eyebrow"
+                android:layout_marginBottom="@dimen/space_3"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMatricule"
+                style="@style/Input.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Matricule"
+                android:layout_marginBottom="@dimen/space_3">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMatricule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:fontFamily="@font/jetbrains_mono_regular"
+                    android:textSize="@dimen/text_md"
+                    android:textColor="@color/ink_1"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Nom -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNom"
+                style="@style/Input.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nom"
+                android:layout_marginBottom="@dimen/space_3">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:textSize="@dimen/text_md"
+                    android:textColor="@color/ink_1"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Prénom -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPrenom"
+                style="@style/Input.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Prénom"
+                android:layout_marginBottom="@dimen/space_6">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPrenom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:textSize="@dimen/text_md"
+                    android:textColor="@color/ink_1"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Catégorie -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CATÉGORIE"
+                style="@style/TextStyle.Eyebrow"
+                android:layout_marginBottom="@dimen/space_3"/>
+
+            <!-- Eleve -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardEleve"
+                style="@style/Card.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_3"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/space_4">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Élève"
+                            style="@style/TextStyle.H4"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sortie uniquement avec titre de permission"
+                            style="@style/TextStyle.Caption"/>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvEleveSelectionne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="○"
+                        android:textSize="20sp"
+                        android:textColor="@color/ink_4"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Officier Stagiaire -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardOfficier"
+                style="@style/Card.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_3"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/space_4">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Officier stagiaire"
+                            style="@style/TextStyle.H4"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Badge + heure limite"
+                            style="@style/TextStyle.Caption"/>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvOfficierSelectionne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="○"
+                        android:textSize="20sp"
+                        android:textColor="@color/ink_4"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Personnel Admin -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPersonnelAdmin"
+                style="@style/Card.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_3"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/space_4">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Personnel administratif"
+                            style="@style/TextStyle.H4"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Badge + heure limite"
+                            style="@style/TextStyle.Caption"/>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvPersonnelAdminSelectionne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="○"
+                        android:textSize="20sp"
+                        android:textColor="@color/ink_4"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Personnel Encadrant -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPersonnelEncadrant"
+                style="@style/Card.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_8"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/space_4">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Personnel encadrant"
+                            style="@style/TextStyle.H4"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Badge + heure limite"
+                            style="@style/TextStyle.Caption"/>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvPersonnelEncadrantSelectionne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="○"
+                        android:textSize="20sp"
+                        android:textColor="@color/ink_4"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Message erreur -->
+            <TextView
+                android:id="@+id/tvErreur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="@dimen/text_sm"
+                android:textColor="@color/status_err_fg"
+                android:layout_marginBottom="@dimen/space_3"
+                android:paddingStart="4dp"/>
+
+            <!-- Bouton créer -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCreer"
+                style="@style/Button.Primary.Large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Créer l'utilisateur"
+                android:enabled="false"/>
+
+            <!-- Chargement -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:indeterminateTint="@color/olive_500"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/space_4"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

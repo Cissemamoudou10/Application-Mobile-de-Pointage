@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ════════ ESPACEMENTS (base 4px) ════════ -->
+    <dimen name="space_1">4dp</dimen>
+    <dimen name="space_2">8dp</dimen>
+    <dimen name="space_3">12dp</dimen>
+    <dimen name="space_4">16dp</dimen>
+    <dimen name="space_5">20dp</dimen>
+    <dimen name="space_6">24dp</dimen>
+    <dimen name="space_8">32dp</dimen>
+    <dimen name="space_10">40dp</dimen>
+    <dimen name="space_12">48dp</dimen>
+    <dimen name="space_16">64dp</dimen>
+    <dimen name="space_20">80dp</dimen>
+
+    <!-- ════════ MARGES ÉCRAN ════════ -->
+    <dimen name="screen_margin">20dp</dimen>
+    <dimen name="screen_margin_dense">16dp</dimen>
+
+    <!-- ════════ TYPOGRAPHIE ════════ -->
+    <dimen name="text_2xs">11sp</dimen>
+    <dimen name="text_xs">12sp</dimen>
+    <dimen name="text_sm">13sp</dimen>
+    <dimen name="text_md">15sp</dimen>
+    <dimen name="text_lg">17sp</dimen>
+    <dimen name="text_xl">20sp</dimen>
+    <dimen name="text_2xl">24sp</dimen>
+    <dimen name="text_3xl">30sp</dimen>
+    <dimen name="text_4xl">38sp</dimen>
+
+    <!-- ════════ RAYONS DE COIN ════════ -->
+    <dimen name="radius_xs">3dp</dimen>
+    <dimen name="radius_sm">5dp</dimen>
+    <dimen name="radius_md">8dp</dimen>
+    <dimen name="radius_lg">12dp</dimen>
+    <dimen name="radius_xl">16dp</dimen>
+    <dimen name="radius_pill">999dp</dimen>
+
+    <!-- ════════ COMPOSANTS ════════ -->
+    <!-- Boutons -->
+    <dimen name="btn_padding_h">16dp</dimen>
+    <dimen name="btn_padding_v">10dp</dimen>
+    <dimen name="btn_padding_h_lg">20dp</dimen>
+    <dimen name="btn_padding_v_lg">14dp</dimen>
+    <dimen name="btn_height">44dp</dimen>
+    <dimen name="btn_height_lg">52dp</dimen>
+
+    <!-- Inputs -->
+    <dimen name="input_height">48dp</dimen>
+    <dimen name="input_padding_h">16dp</dimen>
+    <dimen name="input_padding_v">12dp</dimen>
+
+    <!-- Cards -->
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="card_padding_lg">20dp</dimen>
+
+    <!-- List Row -->
+    <dimen name="row_padding_h">16dp</dimen>
+    <dimen name="row_padding_v">14dp</dimen>
+    <dimen name="avatar_size">36dp</dimen>
+
+    <!-- AppBar -->
+    <dimen name="appbar_height">56dp</dimen>
+
+    <!-- Bottom Nav -->
+    <dimen name="bottom_nav_height">64dp</dimen>
+    <dimen name="bottom_nav_icon">22dp</dimen>
+
+    <!-- Icônes -->
+    <dimen name="icon_inline">16dp</dimen>
+    <dimen name="icon_nav">18dp</dimen>
+    <dimen name="icon_ui">20dp</dimen>
+    <dimen name="icon_header">24dp</dimen>
+
+</resources>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Card.Default"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/space_3"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_4">
+
+        <!-- En-tête -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/space_3">
+
+            <View
+                android:id="@+id/dotNonLue"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@drawable/dot_connexion"
+                android:layout_marginEnd="@dimen/space_3"/>
+
+            <TextView
+                android:id="@+id/tvTypePerte"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/TextStyle.H4"/>
+
+            <TextView
+                android:id="@+id/tvStatut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/space_3"
+                android:paddingEnd="@dimen/space_3"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:background="@drawable/bg_statut_warn"
+                android:text="Non lue"
+                android:textColor="@color/status_warn_fg"
+                style="@style/TextStyle.Caption"/>
+
+        </LinearLayout>
+
+        <!-- Utilisateur -->
+        <TextView
+            android:id="@+id/tvUtilisateur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextStyle.Body"
+            android:layout_marginBottom="@dimen/space_2"/>
+
+        <!-- Date -->
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextStyle.Caption"
+            android:fontFamily="@font/jetbrains_mono_regular"/>
+
+        <!-- Bouton marquer lue -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMarquerLue"
+            style="@style/Button.Ghost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marquer comme lue"
+            android:layout_marginTop="@dimen/space_3"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

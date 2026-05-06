@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/paper"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/screen_margin"
+        android:paddingEnd="@dimen/screen_margin"
+        android:paddingTop="80dp"
+        android:paddingBottom="40dp">
+
+        <!-- ════════ EN-TÊTE ════════ -->
+
+        <!-- Eyebrow -->
+        <TextView
+            android:id="@+id/tvEyebrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CENTRE D'INSTRUCTION DES TRANSMISSIONS"
+            style="@style/TextStyle.Eyebrow"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Titre -->
+        <TextView
+            android:id="@+id/tvTitre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connexion"
+            style="@style/TextStyle.H1"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Sous-titre -->
+        <TextView
+            android:id="@+id/tvSousTitre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Veuillez vous identifier pour accéder au système."
+            style="@style/TextStyle.Body"
+            android:textColor="@color/ink_3"
+            android:layout_marginBottom="48dp"/>
+
+        <!-- ════════ FORMULAIRE ════════ -->
+
+        <!-- Champ Login -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilLogin"
+            style="@style/Input.Default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_matricule"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                android:textSize="@dimen/text_md"
+                android:textColor="@color/ink_1"
+                android:fontFamily="@font/inter_tight"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Champ Mot de passe -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
+            style="@style/Input.Default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_password"
+            app:endIconMode="password_toggle"
+            android:layout_marginBottom="32dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:imeOptions="actionDone"
+                android:textSize="@dimen/text_md"
+                android:textColor="@color/ink_1"
+                android:fontFamily="@font/inter_tight"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Message d'erreur -->
+        <TextView
+            android:id="@+id/tvErreur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text=""
+            android:textSize="@dimen/text_sm"
+            android:textColor="@color/status_err_fg"
+            android:layout_marginBottom="16dp"
+            android:paddingStart="4dp"/>
+
+        <!-- Bouton connexion -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConnexion"
+            style="@style/Button.Primary.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_btn"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Indicateur de chargement -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"
+            android:indeterminateTint="@color/olive_500"/>
+
+        <!-- ════════ PIED DE PAGE ════════ -->
+
+        <!-- Séparateur -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Version -->
+        <TextView
+            android:id="@+id/tvVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="CIT Pointage v1.0"
+            style="@style/TextStyle.Caption"
+            android:textColor="@color/ink_4"/>
+
+    </LinearLayout>
+
+</ScrollView>

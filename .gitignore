@@ -1,0 +1,58 @@
+# ════════════════════════════════════════════
+#  .gitignore — Application Android CIT Pointage
+# ════════════════════════════════════════════
+
+# ════════ FICHIERS GRADLE ════════
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# ════════ FICHIERS LOCAUX (secrets, chemins machine) ════════
+local.properties
+keystore.properties
+*.jks
+*.keystore
+
+# ════════ INTELLIJ / ANDROID STUDIO ════════
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/.gitignore
+
+# ════════ ANDROID BUILD OUTPUTS ════════
+/app/build/
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.ap_
+*.aab
+
+# ════════ LOGS & TEMP ════════
+*.log
+*.tmp
+*.temp
+
+# ════════ SYSTÈMES D'EXPLOITATION ════════
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+# Linux
+*~
+
+# ════════ PROFILING ════════
+*.hprof

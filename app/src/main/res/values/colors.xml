@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ════════ NEUTRES (papier chaud) ════════ -->
+    <color name="paper">#FAF8F4</color>
+    <color name="paper_2">#F2EEE6</color>
+    <color name="paper_3">#E8E2D5</color>
+    <color name="ink_1">#1F1D1A</color>
+    <color name="ink_2">#3F3B34</color>
+    <color name="ink_3">#6B6557</color>
+    <color name="ink_4">#9C9483</color>
+    <color name="line">#D9D3C4</color>
+    <color name="line_strong">#B8AF98</color>
+
+    <!-- ════════ OLIVE MILITAIRE (accent primaire) ════════ -->
+    <color name="olive_50">#F4F2E8</color>
+    <color name="olive_100">#E5E1CA</color>
+    <color name="olive_200">#C9C194</color>
+    <color name="olive_300">#A89E6A</color>
+    <color name="olive_400">#87804E</color>
+    <color name="olive_500">#5C5836</color>
+    <color name="olive_600">#444125</color>
+    <color name="olive_700">#2E2C19</color>
+
+    <!-- ════════ STATUTS ════════ -->
+    <!-- OK / Présent -->
+    <color name="status_ok_fg">#4F7A3F</color>
+    <color name="status_ok_bg">#E8EDDD</color>
+
+    <!-- Warn / Attente -->
+    <color name="status_warn_fg">#B8770A</color>
+    <color name="status_warn_bg">#F5E9CD</color>
+
+    <!-- Err / Refusé -->
+    <color name="status_err_fg">#A8412A</color>
+    <color name="status_err_bg">#F2DDD3</color>
+
+    <!-- Info -->
+    <color name="status_info_fg">#3B5F7A</color>
+    <color name="status_info_bg">#DCE5EC</color>
+
+    <!-- ════════ ALIASES SÉMANTIQUES ════════ -->
+    <color name="bg_primary">#FAF8F4</color>
+    <color name="bg_surface">#FFFFFF</color>
+    <color name="bg_surface_2">#F2EEE6</color>
+    <color name="text_primary">#1F1D1A</color>
+    <color name="text_secondary">#3F3B34</color>
+    <color name="text_tertiary">#6B6557</color>
+    <color name="text_placeholder">#9C9483</color>
+    <color name="divider">#D9D3C4</color>
+    <color name="primary">#5C5836</color>
+    <color name="primary_hover">#444125</color>
+    <color name="primary_press">#2E2C19</color>
+    <color name="white">#FFFFFF</color>
+
+</resources>

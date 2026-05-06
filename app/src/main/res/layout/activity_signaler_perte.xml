@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/paper">
+
+    <!-- ════════ APPBAR ════════ -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/AppBar.Default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="Signaler une perte"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"/>
+
+    <!-- ════════ CONTENU ════════ -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_margin"
+            android:paddingEnd="@dimen/screen_margin"
+            android:paddingTop="@dimen/space_6"
+            android:paddingBottom="@dimen/space_8">
+
+            <!-- Instruction -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recherchez l'utilisateur concerné puis sélectionnez le type de perte."
+                style="@style/TextStyle.Body"
+                android:textColor="@color/ink_3"
+                android:layout_marginBottom="@dimen/space_6"/>
+
+            <!-- ════════ ÉTAPE 1 — RECHERCHE ════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ÉTAPE 1 — UTILISATEUR"
+                style="@style/TextStyle.Eyebrow"
+                android:layout_marginBottom="@dimen/space_3"/>
+
+            <!-- Champ recherche -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRecherche"
+                style="@style/Input.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Matricule ou nom"
+                android:layout_marginBottom="@dimen/space_3">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRecherche"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:imeOptions="actionSearch"
+                    android:textSize="@dimen/text_md"
+                    android:textColor="@color/ink_1"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRechercher"
+                style="@style/Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rechercher"
+                android:layout_marginBottom="@dimen/space_4"/>
+
+            <!-- Utilisateur sélectionné -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardUtilisateur"
+                style="@style/Card.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_6"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/space_4">
+
+                    <ImageView
+                        android:id="@+id/ivAvatar"
+                        android:layout_width="@dimen/avatar_size"
+                        android:layout_height="@dimen/avatar_size"
+                        android:scaleType="centerCrop"
+                        android:background="@color/olive_100"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/space_3">
+
+                        <TextView
+                            android:id="@+id/tvNomComplet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/TextStyle.H4"/>
+
+                        <TextView
+                            android:id="@+id/tvMatricule"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/TextStyle.Caption"
+                            android:fontFamily="@font/jetbrains_mono_regular"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ════════ ÉTAPE 2 — TYPE PERTE ════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ÉTAPE 2 — TYPE DE PERTE"
+                style="@style/TextStyle.Eyebrow"
+                android:layout_marginBottom="@dimen/space_3"/>
+
+            <!-- Badge -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardBadge"
+                style="@style/Card.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_3"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/space_4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Perte de badge"
+                        style="@style/TextStyle.H4"/>
+
+                    <TextView
+                        android:id="@+id/tvBadgeSelectionne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="○"
+                        android:textSize="20sp"
+                        android:textColor="@color/ink_4"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Titre de permission -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTitrePermission"
+                style="@style/Card.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_8"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/space_4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Perte de titre de permission"
+                        style="@style/TextStyle.H4"/>
+
+                    <TextView
+                        android:id="@+id/tvTitreSelectionne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="○"
+                        android:textSize="20sp"
+                        android:textColor="@color/ink_4"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Bouton confirmer -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnConfirmer"
+                style="@style/Button.Primary.Large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirmer le signalement"
+                android:enabled="false"/>
+
+            <!-- Chargement -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:indeterminateTint="@color/olive_500"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/space_4"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

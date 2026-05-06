@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/paper">
+
+    <!-- ════════ APPBAR ════════ -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/AppBar.Default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="Recherche manuelle"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"/>
+
+    <!-- ════════ CONTENU ════════ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/screen_margin"
+        android:paddingEnd="@dimen/screen_margin"
+        android:paddingTop="@dimen/space_6">
+
+        <!-- Instruction -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recherchez l'utilisateur par matricule ou nom."
+            style="@style/TextStyle.Body"
+            android:textColor="@color/ink_3"
+            android:layout_marginBottom="@dimen/space_5"/>
+
+        <!-- Champ recherche -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilRecherche"
+            style="@style/Input.Default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Matricule ou nom"
+            android:layout_marginBottom="@dimen/space_3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRecherche"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:textSize="@dimen/text_md"
+                android:textColor="@color/ink_1"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Bouton rechercher -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRechercher"
+            style="@style/Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rechercher"
+            android:layout_marginBottom="@dimen/space_6"/>
+
+        <!-- Indicateur chargement -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:indeterminateTint="@color/olive_500"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/space_4"/>
+
+        <!-- Section résultats -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RÉSULTATS"
+            style="@style/TextStyle.Eyebrow"
+            android:layout_marginBottom="@dimen/space_3"/>
+
+        <!-- Liste résultats -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvResultats"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- État vide -->
+        <TextView
+            android:id="@+id/tvVide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/empty_utilisateurs"
+            style="@style/TextStyle.Caption"
+            android:gravity="center"
+            android:padding="@dimen/space_8"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</LinearLayout>

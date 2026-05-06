@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ════════ APP ════════ -->
+    <string name="app_name">CIT Pointage</string>
+
+    <!-- ════════ LOGIN ════════ -->
+    <string name="login_title">Connexion</string>
+    <string name="login_subtitle">Centre d\'Instruction des Transmissions</string>
+    <string name="login_matricule">Matricule</string>
+    <string name="login_password">Mot de passe</string>
+    <string name="login_btn">Se connecter</string>
+    <string name="login_error">Identifiant ou mot de passe incorrect.</string>
+    <string name="login_error_empty">Veuillez renseigner tous les champs.</string>
+    <string name="login_error_network">Impossible de joindre le serveur.</string>
+
+    <!-- ════════ NAVIGATION ════════ -->
+    <string name="nav_pointer">Pointer</string>
+    <string name="nav_historique">Historique</string>
+    <string name="nav_equipe">Équipe</string>
+    <string name="nav_profil">Profil</string>
+
+    <!-- ════════ POINTAGE ════════ -->
+    <string name="pointage_entree">Pointer l\'entrée</string>
+    <string name="pointage_sortie">Pointer la sortie</string>
+    <string name="pointage_scanner">Scanner un badge</string>
+    <string name="pointage_manuel">Saisie manuelle</string>
+    <string name="pointage_success">Pointage enregistré.</string>
+    <string name="pointage_retard">Pointage enregistré — retard signalé.</string>
+    <string name="pointage_refuse">Accès refusé.</string>
+    <string name="pointage_badge_invalide">Badge non reconnu.</string>
+    <string name="pointage_hors_ligne">Hors ligne — pointage en attente de synchronisation.</string>
+
+    <!-- ════════ STATUTS ════════ -->
+    <string name="statut_present">Présent</string>
+    <string name="statut_absent">Absent</string>
+    <string name="statut_retard">En retard</string>
+    <string name="statut_permission">En permission</string>
+    <string name="statut_attente">En attente</string>
+
+    <!-- ════════ PERTES ════════ -->
+    <string name="perte_badge">Perte de badge</string>
+    <string name="perte_titre">Perte de titre de permission</string>
+    <string name="perte_success">Perte signalée. Le badge a été invalidé.</string>
+
+    <!-- ════════ ERREURS ════════ -->
+    <string name="error_network">Erreur réseau. Vérifiez votre connexion.</string>
+    <string name="error_generic">Une erreur est survenue.</string>
+    <string name="error_unauthorized">Session expirée. Veuillez vous reconnecter.</string>
+
+    <!-- ════════ ÉTATS VIDES ════════ -->
+    <string name="empty_pointages">Aucun pointage enregistré.</string>
+    <string name="empty_alertes">Aucune alerte en attente.</string>
+    <string name="empty_pertes">Aucune perte signalée.</string>
+    <string name="empty_utilisateurs">Aucun utilisateur trouvé.</string>
+
+    <!-- ════════ ACTIONS ════════ -->
+    <string name="action_confirmer">Confirmer</string>
+    <string name="action_annuler">Annuler</string>
+    <string name="action_rechercher">Rechercher</string>
+    <string name="action_deconnecter">Se déconnecter</string>
+    <string name="action_retour">Retour</string>
+    <string name="action_fermer">Fermer</string>
+
+</resources>

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/paper">
+
+    <!-- ════════ APPBAR ════════ -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/AppBar.Default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Titre dans le toolbar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvToolbarTitre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CIT Pointage"
+                style="@style/TextStyle.H3"/>
+
+            <TextView
+                android:id="@+id/tvToolbarSousTitre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contrôleur"
+                style="@style/TextStyle.Caption"/>
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Séparateur -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"/>
+
+    <!-- ════════ CONTENU SCROLLABLE ════════ -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_margin"
+            android:paddingEnd="@dimen/screen_margin"
+            android:paddingTop="@dimen/space_6"
+            android:paddingBottom="@dimen/space_10">
+
+            <!-- ════════ STATUT CONNEXION ════════ -->
+            <LinearLayout
+                android:id="@+id/layoutStatutConnexion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="@dimen/space_4"
+                android:background="@drawable/bg_statut_connexion"
+                android:layout_marginBottom="@dimen/space_8">
+
+                <View
+                    android:id="@+id/dotConnexion"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/dot_connexion"
+                    android:layout_marginEnd="@dimen/space_2"/>
+
+                <TextView
+                    android:id="@+id/tvStatutConnexion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="En ligne"
+                    style="@style/TextStyle.Caption"
+                    android:textColor="@color/status_ok_fg"/>
+
+            </LinearLayout>
+
+            <!-- ════════ SECTION POINTAGE ════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="POINTAGE"
+                style="@style/TextStyle.Eyebrow"
+                android:layout_marginBottom="@dimen/space_3"/>
+
+            <!-- Grille 2 colonnes -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:layout_marginBottom="@dimen/space_6">
+
+                <!-- Entrée -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardEntree"
+                    style="@style/Card.Default"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/space_2"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/space_3">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="→"
+                            android:textSize="24sp"
+                            android:textColor="@color/status_ok_fg"
+                            android:layout_marginBottom="@dimen/space_2"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Entrée"
+                            style="@style/TextStyle.H4"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Scanner badge"
+                            style="@style/TextStyle.Caption"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Sortie -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardSortie"
+                    style="@style/Card.Default"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/space_2"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/space_3">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="←"
+                            android:textSize="24sp"
+                            android:textColor="@color/status_err_fg"
+                            android:layout_marginBottom="@dimen/space_2"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sortie"
+                            style="@style/TextStyle.H4"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Scanner badge"
+                            style="@style/TextStyle.Caption"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Départ permission -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardDepartPermission"
+                    style="@style/Card.Default"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/space_2"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/space_3">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="↗"
+                            android:textSize="24sp"
+                            android:textColor="@color/status_warn_fg"
+                            android:layout_marginBottom="@dimen/space_2"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Départ"
+                            style="@style/TextStyle.H4"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Scanner titre"
+                            style="@style/TextStyle.Caption"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Retour permission -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardRetourPermission"
+                    style="@style/Card.Default"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/space_2"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/space_3">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="↙"
+                            android:textSize="24sp"
+                            android:textColor="@color/status_info_fg"
+                            android:layout_marginBottom="@dimen/space_2"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Retour"
+                            style="@style/TextStyle.H4"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Scanner titre"
+                            style="@style/TextStyle.Caption"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </GridLayout>
+
+            <!-- ════════ SECTION ACTIONS ════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACTIONS"
+                style="@style/TextStyle.Eyebrow"
+                android:layout_marginBottom="@dimen/space_3"/>
+
+            <!-- Pointage manuel -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPointageManuel"
+                style="@style/Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pointage manuel"
+                android:layout_marginBottom="@dimen/space_3"/>
+
+            <!-- Signaler une perte -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSignalerPerte"
+                style="@style/Button.Danger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Signaler une perte"
+                android:layout_marginBottom="@dimen/space_8"/>
+
+            <!-- ════════ SECTION DERNIERS SCANS ════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DERNIERS POINTAGES"
+                style="@style/TextStyle.Eyebrow"
+                android:layout_marginBottom="@dimen/space_3"/>
+
+            <!-- Liste des derniers pointages -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDerniersPointages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+            <!-- État vide -->
+            <TextView
+                android:id="@+id/tvVide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_pointages"
+                style="@style/TextStyle.Caption"
+                android:gravity="center"
+                android:padding="@dimen/space_8"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

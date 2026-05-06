@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/paper">
+
+    <!-- ════════ APPBAR ════════ -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/AppBar.Default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Séparateur -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"/>
+
+    <!-- ════════ CONTENU ════════ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/screen_margin"
+        android:paddingEnd="@dimen/screen_margin"
+        android:paddingTop="@dimen/space_8"
+        android:paddingBottom="@dimen/space_8"
+        android:gravity="center">
+
+        <!-- Icône type pointage -->
+        <TextView
+            android:id="@+id/tvIconeType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="→"
+            android:textSize="48sp"
+            android:textColor="@color/olive_500"
+            android:layout_marginBottom="@dimen/space_4"/>
+
+        <!-- Type de pointage -->
+        <TextView
+            android:id="@+id/tvTypePointage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entrée"
+            style="@style/TextStyle.H2"
+            android:layout_marginBottom="@dimen/space_2"/>
+
+        <!-- Instruction -->
+        <TextView
+            android:id="@+id/tvInstruction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Présentez le badge à scanner."
+            style="@style/TextStyle.Body"
+            android:textColor="@color/ink_3"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/space_10"/>
+
+        <!-- Bouton scanner -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnScanner"
+            style="@style/Button.Primary.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scanner le badge"
+            android:layout_marginBottom="@dimen/space_4"/>
+
+        <!-- ════════ RÉSULTAT ════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardResultat"
+            style="@style/Card.Default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/space_6">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/space_5">
+
+                <!-- Photo utilisateur -->
+                <ImageView
+                    android:id="@+id/ivPhoto"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:background="@color/olive_100"
+                    android:layout_marginBottom="@dimen/space_4"/>
+
+                <!-- Nom complet -->
+                <TextView
+                    android:id="@+id/tvNomComplet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    style="@style/TextStyle.H3"
+                    android:layout_marginBottom="@dimen/space_2"/>
+
+                <!-- Matricule -->
+                <TextView
+                    android:id="@+id/tvMatricule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    style="@style/TextStyle.Caption"
+                    android:fontFamily="@font/jetbrains_mono_regular"
+                    android:layout_marginBottom="@dimen/space_4"/>
+
+                <!-- Statut pointage -->
+                <TextView
+                    android:id="@+id/tvStatutPointage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingStart="@dimen/space_4"
+                    android:paddingEnd="@dimen/space_4"
+                    android:paddingTop="@dimen/space_2"
+                    android:paddingBottom="@dimen/space_2"
+                    android:background="@drawable/bg_statut_ok"
+                    style="@style/TextStyle.Caption"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Indicateur chargement -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_6"
+            android:indeterminateTint="@color/olive_500"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</LinearLayout>

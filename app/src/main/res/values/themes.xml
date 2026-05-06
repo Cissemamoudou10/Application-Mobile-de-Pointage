@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Cit_pointage"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        ...
+        <!-- Police globale -->
+        <item name="android:fontFamily">@font/inter_tight</item>
+        ...
+
+        <!-- Couleurs principales -->
+        <item name="colorPrimary">@color/olive_500</item>
+        <item name="colorPrimaryVariant">@color/olive_600</item>
+        <item name="colorOnPrimary">@color/paper</item>
+        <item name="colorSecondary">@color/olive_500</item>
+        <item name="colorOnSecondary">@color/paper</item>
+
+        <!-- Fond de l'app -->
+        <item name="android:windowBackground">@color/paper</item>
+        <item name="android:colorBackground">@color/paper</item>
+
+        <!-- Textes -->
+        <item name="android:textColor">@color/ink_1</item>
+        <item name="android:textColorSecondary">@color/ink_3</item>
+        <item name="android:textColorHint">@color/ink_4</item>
+
+        <!-- Barre de statut -->
+        <item name="android:statusBarColor">@color/paper</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@color/paper</item>
+        <item name="android:windowLightNavigationBar">true</item>
+
+        <!-- Ripple -->
+        <item name="colorControlHighlight">#1A5C5836</item>
+
+    </style>
+
+    <!-- Thème sans ActionBar pour Login -->
+    <style name="Theme.Cit_pointage.Login"
+        parent="Theme.Cit_pointage">
+        <item name="android:windowFullscreen">false</item>
+    </style>
+
+</resources>

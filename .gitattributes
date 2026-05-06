@@ -1,0 +1,28 @@
+# ════════════════════════════════════════════
+#  .gitattributes — Application Android CIT Pointage
+#  Normalisation des fins de ligne (LF/CRLF)
+# ════════════════════════════════════════════
+
+# Par défaut : normalise tout en LF dans le dépôt
+* text=auto eol=lf
+
+# Scripts shell : toujours LF (sinon ils cassent sur Linux/Mac)
+*.sh text eol=lf
+gradlew text eol=lf
+
+# Fichiers Windows : CRLF autorisé localement
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Fichiers binaires : pas de conversion
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.keystore binary
+*.jks binary
+*.apk binary
+*.aab binary
+*.jar binary
+*.so binary
