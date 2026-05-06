@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_permission.xml
+    Item de liste pour une permission en cours.
+    Affiche : nom utilisateur | dates | statut | bouton annuler
+-->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Card.Default"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/space_3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_4">
+
+        <!-- Ligne 1 : Nom utilisateur + Badge statut -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/space_3">
+
+            <TextView
+                android:id="@+id/tvNomUtilisateur"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/TextStyle.H4"
+                android:text="Nom Prénom" />
+
+            <TextView
+                android:id="@+id/tvStatut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="En cours"
+                android:paddingStart="@dimen/space_3"
+                android:paddingEnd="@dimen/space_3"
+                android:paddingTop="@dimen/space_1"
+                android:paddingBottom="@dimen/space_1"
+                style="@style/TextStyle.Caption"
+                android:background="@drawable/bg_statut_ok"
+                android:textColor="@color/status_ok_fg" />
+
+        </LinearLayout>
+
+        <!-- Matricule -->
+        <TextView
+            android:id="@+id/tvMatricule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextStyle.Caption"
+            android:fontFamily="@font/jetbrains_mono_regular"
+            android:layout_marginBottom="@dimen/space_3" />
+
+        <!-- Séparateur -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line"
+            android:layout_marginBottom="@dimen/space_3" />
+
+        <!-- Dates -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/space_4">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📅 Début"
+                    style="@style/TextStyle.Caption"
+                    android:layout_marginBottom="@dimen/space_1" />
+
+                <TextView
+                    android:id="@+id/tvDateDebut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextStyle.Body"
+                    android:text="—" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📅 Fin"
+                    style="@style/TextStyle.Caption"
+                    android:layout_marginBottom="@dimen/space_1" />
+
+                <TextView
+                    android:id="@+id/tvDateFin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextStyle.Body"
+                    android:text="—" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Bouton Annuler -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAnnuler"
+            style="@style/Button.Danger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Annuler la permission"
+            android:layout_gravity="end" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -179,7 +179,35 @@
                         android:background="@drawable/bg_statut_ok"
                         android:text="Badge actif"
                         android:textColor="@color/status_ok_fg"
-                        style="@style/TextStyle.Caption"/>
+                        style="@style/TextStyle.Caption"
+                        android:layout_marginBottom="@dimen/space_5"/>
+
+                    <!-- Actions sur le badge -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnRenouveler"
+                            style="@style/Button.Secondary"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Renouveler"
+                            android:layout_marginEnd="@dimen/space_2"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnDesactiverBadge"
+                            style="@style/Button.Danger"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Désactiver"
+                            android:layout_marginStart="@dimen/space_2"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
