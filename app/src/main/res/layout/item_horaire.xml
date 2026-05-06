@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_horaire.xml
+    Item de liste pour un horaire configuré.
+    Affiche : catégorie | heure limite | jours | statut actif/inactif
+-->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Card.Default"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/space_3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_4">
+
+        <!-- Ligne 1 : Catégorie + Badge Statut -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/space_3">
+
+            <TextView
+                android:id="@+id/tvCategorie"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/TextStyle.H4"
+                android:text="Catégorie" />
+
+            <!-- Badge statut Actif / Inactif -->
+            <TextView
+                android:id="@+id/tvStatut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Actif"
+                android:paddingStart="@dimen/space_3"
+                android:paddingEnd="@dimen/space_3"
+                android:paddingTop="@dimen/space_1"
+                android:paddingBottom="@dimen/space_1"
+                style="@style/TextStyle.Caption"
+                android:backgroundTint="@color/status_ok_bg"
+                android:textColor="@color/status_ok_fg"
+                android:background="@drawable/bg_statut_ok" />
+
+        </LinearLayout>
+
+        <!-- Séparateur léger -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line"
+            android:layout_marginBottom="@dimen/space_3" />
+
+        <!-- Ligne 2 : Heure limite -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/space_2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⏰  Heure limite"
+                style="@style/TextStyle.Caption"
+                android:layout_marginEnd="@dimen/space_2" />
+
+            <TextView
+                android:id="@+id/tvHeureLimite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--:--"
+                style="@style/TextStyle.H4"
+                android:textColor="@color/olive_500" />
+
+        </LinearLayout>
+
+        <!-- Ligne 3 : Jours applicables -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/space_4">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📅  Jours"
+                style="@style/TextStyle.Caption"
+                android:layout_marginEnd="@dimen/space_2" />
+
+            <TextView
+                android:id="@+id/tvJours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="—"
+                style="@style/TextStyle.Caption"
+                android:textColor="@color/ink_2" />
+
+        </LinearLayout>
+
+        <!-- Bouton Désactiver -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDesactiver"
+            style="@style/Button.Danger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Désactiver"
+            android:layout_gravity="end" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

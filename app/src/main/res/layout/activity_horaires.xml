@@ -1,10 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.admin.HorairesActivity">
+    android:orientation="vertical"
+    android:background="@color/paper">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- ════════ APPBAR ════════ -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/AppBar.Default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gestion des horaires"
+                style="@style/TextStyle.H3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Configuration par catégorie"
+                style="@style/TextStyle.Caption" />
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Séparateur -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line" />
+
+    <!-- ProgressBar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/olive_500"
+        android:visibility="gone" />
+
+    <!-- ════════ CONTENU SCROLLABLE ════════ -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_margin"
+            android:paddingEnd="@dimen/screen_margin"
+            android:paddingTop="@dimen/space_6"
+            android:paddingBottom="@dimen/space_10">
+
+            <!-- ════════ SECTION : CONFIGURER ════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONFIGURER UN HORAIRE"
+                style="@style/TextStyle.Eyebrow"
+                android:layout_marginBottom="@dimen/space_4" />
+
+            <!-- Card formulaire -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Card.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_6">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_5">
+
+                    <!-- Catégorie (Spinner) -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Catégorie d'utilisateur"
+                        style="@style/TextStyle.Caption"
+                        android:layout_marginBottom="@dimen/space_2" />
+
+                    <Spinner
+                        android:id="@+id/spinnerCategorie"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_statut_connexion"
+                        android:padding="@dimen/space_3"
+                        android:layout_marginBottom="@dimen/space_5" />
+
+                    <!-- Heure limite -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Heure limite d'arrivée"
+                        style="@style/TextStyle.Caption"
+                        android:layout_marginBottom="@dimen/space_2" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/space_5">
+
+                        <TextView
+                            android:id="@+id/tvHeureLimite"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="07:45"
+                            style="@style/TextStyle.H2"
+                            android:textColor="@color/olive_500" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnChoisirHeure"
+                            style="@style/Button.Secondary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Modifier" />
+
+                    </LinearLayout>
+
+                    <!-- Jours applicables (CheckBoxes) -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jours applicables"
+                        style="@style/TextStyle.Caption"
+                        android:layout_marginBottom="@dimen/space_3" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="@dimen/space_5">
+
+                        <CheckBox android:id="@+id/cbLundi"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Lun"
+                            android:checked="true" style="@style/TextStyle.Caption" />
+
+                        <CheckBox android:id="@+id/cbMardi"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Mar"
+                            android:checked="true" style="@style/TextStyle.Caption" />
+
+                        <CheckBox android:id="@+id/cbMercredi"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Mer"
+                            android:checked="true" style="@style/TextStyle.Caption" />
+
+                        <CheckBox android:id="@+id/cbJeudi"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Jeu"
+                            android:checked="true" style="@style/TextStyle.Caption" />
+
+                        <CheckBox android:id="@+id/cbVendredi"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Ven"
+                            android:checked="true" style="@style/TextStyle.Caption" />
+
+                        <CheckBox android:id="@+id/cbSamedi"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="Sam"
+                            android:checked="false" style="@style/TextStyle.Caption" />
+
+                    </LinearLayout>
+
+                    <!-- Bouton Enregistrer -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEnregistrer"
+                        style="@style/Button.Primary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Enregistrer l'horaire" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ════════ SECTION : LISTE ════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HORAIRES CONFIGURÉS"
+                style="@style/TextStyle.Eyebrow"
+                android:layout_marginBottom="@dimen/space_4" />
+
+            <!-- Liste des horaires -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHoraires"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+
+            <!-- État vide -->
+            <TextView
+                android:id="@+id/tvVide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aucun horaire configuré"
+                style="@style/TextStyle.Caption"
+                android:gravity="center"
+                android:padding="@dimen/space_8"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
