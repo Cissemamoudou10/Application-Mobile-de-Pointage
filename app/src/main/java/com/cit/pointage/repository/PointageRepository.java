@@ -6,6 +6,7 @@ import com.cit.pointage.api.ApiClient;
 import com.cit.pointage.api.PointageApi;
 import com.cit.pointage.model.request.PointageRequest;
 import com.cit.pointage.model.response.PointageResponse;
+import com.cit.pointage.model.response.RapportGlobalResponse;
 
 import java.util.List;
 
@@ -115,5 +116,26 @@ public class PointageRepository {
                                 "Erreur réseau : " + t.getMessage());
                     }
                 });
+    }
+
+    public void getRapportGlobalJour(
+            MutableLiveData<RapportGlobalResponse> successLiveData,
+            MutableLiveData<String> errorLiveData) {
+
+        pointageApi.getRapportGlobalJour().enqueue(new Callback<RapportGlobalResponse>() {
+            @Override
+            public void onResponse(Call<RapportGlobalResponse> call, Response<RapportGlobalResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    successLiveData.postValue(response.body());
+                } else {
+                    errorLiveData.postValue("Erreur lors du chargement du rapport");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RapportGlobalResponse> call, Throwable t) {
+                errorLiveData.postValue("Erreur réseau : " + t.getMessage());
+            }
+        });
     }
 }

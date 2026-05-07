@@ -2,6 +2,7 @@ package com.cit.pointage.api;
 
 import com.cit.pointage.model.request.PointageRequest;
 import com.cit.pointage.model.response.PointageResponse;
+import com.cit.pointage.model.response.RapportGlobalResponse;
 
 import java.util.List;
 
@@ -30,4 +31,8 @@ public interface PointageApi {
     // Feuille de présence récente (48h)
     @GET("api/pointages/recents")
     Call<List<PointageResponse>> presenceRecente();
+
+    // Rapport global du jour
+    @GET("api/pointages/rapport/jour")
+    Call<RapportGlobalResponse> getRapportGlobalJour();
 }

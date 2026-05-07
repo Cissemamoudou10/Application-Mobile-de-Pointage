@@ -1,47 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/paper">
 
+    <!-- AppBar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         style="@style/AppBar.Default"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="Présence globale"
+        app:title="Présence globale (Aujourd'hui)"
         app:titleTextColor="@color/ink_1"/>
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="32dp">
+        android:fillViewport="true">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="📊"
-            android:textSize="64sp"
-            android:layout_marginBottom="16dp"/>
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="En cours de développement"
-            style="@style/TextStyle.H3"
-            android:gravity="center"
-            android:layout_marginBottom="8dp"/>
+            <!-- Indicateur de chargement -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone"
+                android:layout_marginTop="32dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cette fonctionnalité sera bientôt disponible."
-            style="@style/TextStyle.Body"
-            android:gravity="center"/>
+            <!-- Erreur -->
+            <TextView
+                android:id="@+id/tvErreur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/status_err_fg"
+                android:visibility="gone"
+                android:gravity="center"
+                android:layout_marginTop="16dp"/>
 
-    </LinearLayout>
+            <!-- ════════ DASHBOARD (CARTES) ════════ -->
+            <LinearLayout
+                android:id="@+id/layoutDashboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <!-- Total -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Card.Default"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/status_info_bg"
+                    android:layout_marginBottom="12dp">
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:gravity="center_vertical">
+                        
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Total Effectif"
+                            android:textSize="18sp"
+                            android:textColor="@color/ink_1"
+                            android:textStyle="bold"/>
+                            
+                        <TextView
+                            android:id="@+id/tvTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="120"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/status_info_fg"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Grid 2x2 pour le reste -->
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:rowCount="2">
+
+                    <!-- Présents -->
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Card.Default"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        app:cardBackgroundColor="@color/status_ok_bg"
+                        android:layout_marginEnd="6dp"
+                        android:layout_marginBottom="12dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Présents"
+                                android:textColor="@color/status_ok_fg"/>
+                            <TextView
+                                android:id="@+id/tvPresents"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:text="105"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/status_ok_fg"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- En Retard -->
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Card.Default"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        app:cardBackgroundColor="@color/status_warn_bg"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginBottom="12dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="En retard"
+                                android:textColor="@color/status_warn_fg"/>
+                            <TextView
+                                android:id="@+id/tvRetards"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:text="8"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/status_warn_fg"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- En Permission -->
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Card.Default"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        app:cardBackgroundColor="#F3E8FF" 
+                        android:layout_marginEnd="6dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Permissions"
+                                android:textColor="#7E22CE"/>
+                            <TextView
+                                android:id="@+id/tvPermissions"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:text="4"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:textColor="#7E22CE"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Absents -->
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Card.Default"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        app:cardBackgroundColor="@color/status_err_bg"
+                        android:layout_marginStart="6dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Absents"
+                                android:textColor="@color/status_err_fg"/>
+                            <TextView
+                                android:id="@+id/tvAbsents"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:text="3"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/status_err_fg"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </GridLayout>
+
+                <!-- Titre section liste -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Détails"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/ink_1"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- RecyclerView pour la liste des noms -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_detail_presence"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </LinearLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/line">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Initiales -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/status_info_bg">
+            <TextView
+                android:id="@+id/tvInitiale"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="D"
+                android:gravity="center"
+                android:textColor="@color/status_info_fg"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Nom et Matricule -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+
+            <TextView
+                android:id="@+id/tvNomComplet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Jean Dupont"
+                style="@style/TextStyle.Body"
+                android:textStyle="bold"
+                android:textColor="@color/ink_1"/>
+
+            <TextView
+                android:id="@+id/tvMatricule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="MAT-2023-014"
+                android:textSize="12sp"
+                android:textColor="@color/ink_4"/>
+        </LinearLayout>
+
+        <!-- Heure et Statut -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tvStatut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Présent"
+                tools:backgroundTint="@color/status_succ_bg"
+                tools:textColor="@color/status_succ_fg"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_statut_ok"/>
+
+            <TextView
+                android:id="@+id/tvHeure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="08:15"
+                android:textSize="12sp"
+                android:textColor="@color/ink_3"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

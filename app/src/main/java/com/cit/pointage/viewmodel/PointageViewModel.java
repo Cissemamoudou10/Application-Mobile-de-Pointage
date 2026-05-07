@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.cit.pointage.model.request.PointageRequest;
 import com.cit.pointage.model.response.PointageResponse;
+import com.cit.pointage.model.response.RapportGlobalResponse;
 import com.cit.pointage.repository.PointageRepository;
 
 import java.util.List;
@@ -19,6 +20,8 @@ public class PointageViewModel extends ViewModel {
             retardataires = new MutableLiveData<>();
     public MutableLiveData<List<PointageResponse>>
             presenceRecente = new MutableLiveData<>();
+    public MutableLiveData<RapportGlobalResponse> rapportGlobal =
+            new MutableLiveData<>();
     public MutableLiveData<String> error =
             new MutableLiveData<>();
     public MutableLiveData<Boolean> loading =
@@ -65,5 +68,11 @@ public class PointageViewModel extends ViewModel {
     public void chargerPresenceRecente() {
         loading.setValue(true);
         repository.presenceRecente(presenceRecente, error);
+    }
+
+    // Charger le rapport global
+    public void chargerRapportGlobal() {
+        loading.setValue(true);
+        repository.getRapportGlobalJour(rapportGlobal, error);
     }
 }
