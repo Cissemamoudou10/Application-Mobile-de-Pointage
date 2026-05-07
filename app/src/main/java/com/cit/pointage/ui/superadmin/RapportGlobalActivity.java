@@ -47,17 +47,19 @@ public class RapportGlobalActivity extends AppCompatActivity {
             }
         });
 
+        viewModel.rapportGlobal.observe(this, rapport -> {
+            binding.progressBar.setVisibility(View.GONE);
+            if (rapport != null) {
+                afficherRapport(rapport);
+            }
+        });
+
         viewModel.error.observe(this, error -> {
+            binding.progressBar.setVisibility(View.GONE);
             if (error != null) {
                 binding.tvErreur.setText(error);
                 binding.tvErreur.setVisibility(View.VISIBLE);
                 Toast.makeText(this, error, Toast.LENGTH_LONG).show();
-            }
-        });
-
-        viewModel.rapportGlobal.observe(this, rapport -> {
-            if (rapport != null) {
-                afficherRapport(rapport);
             }
         });
 

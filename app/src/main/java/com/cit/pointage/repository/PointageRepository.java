@@ -138,4 +138,8 @@ public class PointageRepository {
             }
         });
     }
+
+    // Helper for Repository-wide loading management if needed, but here we fix specifically the ones missing.
+    // However, the pattern used is to pass LiveDatas. The ViewModel should be the one to clear loading.
+
 }
