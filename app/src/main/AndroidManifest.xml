@@ -40,6 +40,9 @@
             android:name=".ui.superadmin.AlertesActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.superadmin.ListeComptesActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.superadmin.SuperAdminActivity"
             android:exported="false" />
         <activity

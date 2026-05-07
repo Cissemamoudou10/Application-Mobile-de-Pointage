@@ -8,6 +8,8 @@ import com.cit.pointage.model.response.AuthResponse;
 import com.cit.pointage.model.response.CompteResponse;
 import com.cit.pointage.repository.AuthRepository;
 
+import java.util.List;
+
 public class AuthViewModel extends ViewModel {
 
     private final AuthRepository authRepository;
@@ -24,6 +26,18 @@ public class AuthViewModel extends ViewModel {
     public MutableLiveData<CompteResponse> compteSuccess =
             new MutableLiveData<>();
     public MutableLiveData<String> compteError =
+            new MutableLiveData<>();
+
+    // LiveData pour la liste des comptes
+    public MutableLiveData<List<CompteResponse>> comptesListe =
+            new MutableLiveData<>();
+
+    // LiveData pour le changement de statut
+    public MutableLiveData<CompteResponse> statutSuccess =
+            new MutableLiveData<>();
+    public MutableLiveData<String> listeError =
+            new MutableLiveData<>();
+    public MutableLiveData<String> statutError =
             new MutableLiveData<>();
 
     public AuthViewModel() {
@@ -46,5 +60,14 @@ public class AuthViewModel extends ViewModel {
         loading.setValue(true);
         CompteRequest request = new CompteRequest(nom, prenom, login, motDePasse, role);
         authRepository.creerCompte(request, compteSuccess, compteError);
+    }
+
+    public void getComptes() {
+        loading.setValue(true);
+        authRepository.getComptes(comptesListe, listeError);
+    }
+
+    public void changerStatut(String id, String statut) {
+        authRepository.changerStatut(id, statut, statutSuccess, statutError);
     }
 }

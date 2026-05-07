@@ -9,6 +9,8 @@ import com.cit.pointage.model.request.LoginRequest;
 import com.cit.pointage.model.response.AuthResponse;
 import com.cit.pointage.model.response.CompteResponse;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -67,6 +69,47 @@ public class AuthRepository {
                     successLiveData.postValue(response.body());
                 } else {
                     errorLiveData.postValue("Erreur lors de la création du compte (ex: identifiant déjà utilisé)");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CompteResponse> call, Throwable t) {
+                errorLiveData.postValue("Erreur réseau : " + t.getMessage());
+            }
+        });
+    }
+
+    public void getComptes(MutableLiveData<List<CompteResponse>> successLiveData,
+                           MutableLiveData<String> errorLiveData) {
+
+        authApi.getComptes().enqueue(new Callback<List<CompteResponse>>() {
+            @Override
+            public void onResponse(Call<List<CompteResponse>> call, Response<List<CompteResponse>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    successLiveData.postValue(response.body());
+                } else {
+                    errorLiveData.postValue("Erreur lors du chargement des comptes");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<CompteResponse>> call, Throwable t) {
+                errorLiveData.postValue("Erreur réseau : " + t.getMessage());
+            }
+        });
+    }
+
+    public void changerStatut(String id, String statut,
+                              MutableLiveData<CompteResponse> successLiveData,
+                              MutableLiveData<String> errorLiveData) {
+
+        authApi.changerStatut(id, statut).enqueue(new Callback<CompteResponse>() {
+            @Override
+            public void onResponse(Call<CompteResponse> call, Response<CompteResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    successLiveData.postValue(response.body());
+                } else {
+                    errorLiveData.postValue("Impossible de modifier le statut");
                 }
             }
 
