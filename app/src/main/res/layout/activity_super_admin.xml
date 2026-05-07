@@ -137,9 +137,9 @@
                 android:columnCount="2"
                 android:layout_marginBottom="@dimen/space_6">
 
-                <!-- Créer Admin -->
+                <!-- Créer Compte -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardCreerAdmin"
+                    android:id="@+id/cardCreerCompte"
                     style="@style/Card.Default"
                     android:layout_width="0dp"
                     android:layout_height="90dp"
@@ -173,7 +173,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Admin"
+                            android:text="un compte"
                             style="@style/TextStyle.Caption"
                             android:gravity="center"/>
 
@@ -181,9 +181,9 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Créer Contrôleur -->
+                <!-- Liste Comptes -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardCreerControleur"
+                    android:id="@+id/cardListeComptes"
                     style="@style/Card.Default"
                     android:layout_width="0dp"
                     android:layout_height="90dp"
@@ -202,22 +202,21 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="+"
+                            android:text="👥"
                             android:textSize="24sp"
-                            android:textColor="@color/ink_3"
                             android:layout_marginBottom="@dimen/space_1"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Créer"
+                            android:text="Liste"
                             style="@style/TextStyle.H4"
                             android:gravity="center"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Contrôleur"
+                            android:text="des comptes"
                             style="@style/TextStyle.Caption"
                             android:gravity="center"/>
 

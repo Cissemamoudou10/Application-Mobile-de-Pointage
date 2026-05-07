@@ -60,18 +60,16 @@ public class SuperAdminActivity
                         AlertesActivity.class)));
 
         // ════════ COMPTES ════════
-        binding.cardCreerAdmin.setOnClickListener(v ->
+        binding.cardCreerCompte.setOnClickListener(v ->
                 startActivity(new Intent(
                         this,
-                        CreerCompteActivity.class)
-                        .putExtra("ROLE", "ADMIN")));
+                        CreerCompteActivity.class)));
 
-        binding.cardCreerControleur
+        binding.cardListeComptes
                 .setOnClickListener(v ->
                         startActivity(new Intent(
                                 this,
-                                CreerCompteActivity.class)
-                                .putExtra("ROLE", "CONTROLEUR")));
+                                ListeComptesActivity.class)));
 
         // ════════ RAPPORTS ════════
         binding.btnPresenceGlobale

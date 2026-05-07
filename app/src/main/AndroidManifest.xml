@@ -48,10 +48,7 @@
         <activity
             android:name=".ui.admin.HorairesActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.admin.CreerCompteActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+
 
         <activity
             android:name=".ui.admin.RapportPermissionsActivity"
