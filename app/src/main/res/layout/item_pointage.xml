@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Card.Default"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/space_3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/space_4"
+        android:gravity="center_vertical">
+
+        <!-- Initiales ou Photo (Mock) -->
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_circle_olive"
+            android:layout_marginEnd="@dimen/space_4">
+
+            <TextView
+                android:id="@+id/tvInitiales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="AB"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+        <!-- Détails de l'utilisateur -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvNomUtilisateur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextStyle.H4"
+                android:text="Nom Prénom" />
+
+            <TextView
+                android:id="@+id/tvMatricule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextStyle.Caption"
+                android:fontFamily="@font/jetbrains_mono_regular"
+                android:text="MAT-12345" />
+
+            <!-- Type et Méthode -->
+            <TextView
+                android:id="@+id/tvTypeScan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextStyle.Caption"
+                android:layout_marginTop="@dimen/space_1"
+                android:text="ENTRÉE • Scan QR" />
+
+        </LinearLayout>
+
+        <!-- Heure et Badge Retard -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tvHeure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextStyle.H3"
+                android:text="08:15" />
+
+            <TextView
+                android:id="@+id/tvBadgeRetard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Retard"
+                android:paddingStart="@dimen/space_2"
+                android:paddingEnd="@dimen/space_2"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_marginTop="@dimen/space_2"
+                android:background="@drawable/bg_statut_warn"
+                android:textColor="@color/status_warn_fg"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <!-- Indicateur Hors ligne (optionnel) -->
+            <ImageView
+                android:id="@+id/ivHorsLigne"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="@dimen/space_1"
+                android:src="@android:drawable/ic_dialog_alert"
+                app:tint="@color/ink_3"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

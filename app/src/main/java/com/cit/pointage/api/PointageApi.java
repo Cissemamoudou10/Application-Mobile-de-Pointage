@@ -26,4 +26,8 @@ public interface PointageApi {
     // Retardataires
     @GET("api/pointages/retardataires")
     Call<List<PointageResponse>> retardataires();
+
+    // Feuille de présence récente (48h)
+    @GET("api/pointages/recents")
+    Call<List<PointageResponse>> presenceRecente();
 }

@@ -84,4 +84,36 @@ public class PointageRepository {
                     }
                 });
     }
+
+    // Feuille de présence récente
+    public void presenceRecente(
+            MutableLiveData<List<PointageResponse>>
+                    successLiveData,
+            MutableLiveData<String> errorLiveData) {
+
+        pointageApi.presenceRecente().enqueue(
+                new Callback<List<PointageResponse>>() {
+
+                    @Override
+                    public void onResponse(
+                            Call<List<PointageResponse>> call,
+                            Response<List<PointageResponse>> response) {
+                        if (response.isSuccessful()
+                                && response.body() != null) {
+                            successLiveData.postValue(response.body());
+                        } else {
+                            errorLiveData.postValue(
+                                    "Erreur chargement présence");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(
+                            Call<List<PointageResponse>> call,
+                            Throwable t) {
+                        errorLiveData.postValue(
+                                "Erreur réseau : " + t.getMessage());
+                    }
+                });
+    }
 }

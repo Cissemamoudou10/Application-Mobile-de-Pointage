@@ -17,6 +17,8 @@ public class PointageViewModel extends ViewModel {
             new MutableLiveData<>();
     public MutableLiveData<List<PointageResponse>>
             retardataires = new MutableLiveData<>();
+    public MutableLiveData<List<PointageResponse>>
+            presenceRecente = new MutableLiveData<>();
     public MutableLiveData<String> error =
             new MutableLiveData<>();
     public MutableLiveData<Boolean> loading =
@@ -57,5 +59,11 @@ public class PointageViewModel extends ViewModel {
     public void chargerRetardataires() {
         loading.setValue(true);
         repository.retardataires(retardataires, error);
+    }
+
+    // Charger la présence récente (48h)
+    public void chargerPresenceRecente() {
+        loading.setValue(true);
+        repository.presenceRecente(presenceRecente, error);
     }
 }
