@@ -4,8 +4,10 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.cit.pointage.api.ApiClient;
 import com.cit.pointage.api.AuthApi;
+import com.cit.pointage.model.request.CompteRequest;
 import com.cit.pointage.model.request.LoginRequest;
 import com.cit.pointage.model.response.AuthResponse;
+import com.cit.pointage.model.response.CompteResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,5 +54,26 @@ public class AuthRepository {
                                 "Erreur réseau : " + t.getMessage());
                     }
                 });
+    }
+
+    public void creerCompte(CompteRequest request,
+                            MutableLiveData<CompteResponse> successLiveData,
+                            MutableLiveData<String> errorLiveData) {
+
+        authApi.creerCompte(request).enqueue(new Callback<CompteResponse>() {
+            @Override
+            public void onResponse(Call<CompteResponse> call, Response<CompteResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    successLiveData.postValue(response.body());
+                } else {
+                    errorLiveData.postValue("Erreur lors de la création du compte (ex: identifiant déjà utilisé)");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CompteResponse> call, Throwable t) {
+                errorLiveData.postValue("Erreur réseau : " + t.getMessage());
+            }
+        });
     }
 }
